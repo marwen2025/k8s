@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express-sqlite-deployment
+  labels:
+    app: express-sqlite-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: express-sqlite-app
+  template:
+    metadata:
+      labels:
+        app: express-sqlite-app
+    spec:
+      containers:
+      - name: express-sqlite-container
+        image: viconee/express-sqlite-app:latest  
+        ports:
+        - containerPort: 3000
